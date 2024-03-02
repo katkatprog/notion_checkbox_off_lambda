@@ -19,3 +19,6 @@ functions:
     environment:
       NOTION_KEY: ${ssm:NOTION_KEY}
       NOTION_DATABASE_ID: ${ssm:NOTION_DATABASE_ID}
+    events:
+      # 日本時間で毎晩0時
+      - schedule: cron(0 15 * * ? *)

@@ -14,11 +14,8 @@ provider:
   region: ap-northeast-1
 
 functions:
-  first:
-    handler: first.hello
-  second:
-    handler: second.hello
-    events:
-      - httpApi:
-          method: get
-          path: /second
+  main:
+    handler: index.main
+    environment:
+      NOTION_KEY: ${ssm:NOTION_KEY}
+      NOTION_DATABASE_ID: ${ssm:NOTION_DATABASE_ID}
